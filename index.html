@@ -57,10 +57,30 @@
       content: "$";
     }
 
+    #popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
   </style>
 </head>
 
 <body>
+  
+
+  <div style="position: fixed; z-index: 100;" id="popup">
+  <h2>This is a popup window</h2>
+  <p>Popup content goes here.</p>
+  <button id="close-btn">Close</button>
+</div>
 
   <!-- Loader -->
 
@@ -769,6 +789,18 @@
       }
       return val;
     }
+
+   
+
+$(document).ready(function() {
+  // Show the popup when the document is ready
+  $('#popup').show();
+
+  // Hide the popup when the close button is clicked
+  $('#close-btn').click(function() {
+    $('#popup').hide();
+  });
+});
   </script>
 
 </body>
